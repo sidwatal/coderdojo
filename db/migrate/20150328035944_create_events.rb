@@ -1,10 +1,11 @@
 class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
-      t.string :title
-      t.text :description
+      t.string :event_title
+      t.string :event_place
+      t.text :event_description
       t.datetime :event_date
-      t.integer :number_of_tickets
+      t.integer :event_number_tickets
 
       t.timestamps null: false
     end

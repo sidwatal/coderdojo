@@ -3,10 +3,11 @@ require 'test_helper'
 class EventTest < ActiveSupport::TestCase
   
   def setup
-  	@event = Event.new(title: "Example Event", 
-  		               description: "Our example event for children to get introduced to technology",
+  	@event = Event.new(event_title: "Example Event",
+  	                   event_place: "12 Example Avenue", 
+  		               event_description: "Our example event for children to get introduced to technology",
   		               event_date: DateTime.now,
-  		               number_of_tickets: 30)
+  		               event_number_tickets: 30)
   end
 
   test "should be valid" do
@@ -14,12 +15,12 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "event should have title" do 
-  	assert @event.title = "  "
+  	assert @event.event_title = "  "
   	assert_not @event.valid?
   end
 
   test "event should have description" do 
-  	assert @event.description = "  "
+  	assert @event.event_description = "  "
   	assert_not @event.valid?
   end
 
@@ -29,7 +30,7 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "event should have number of tickets, greater than 0" do
-  	assert @event.number_of_tickets = 0
+  	assert @event.event_number_tickets = 0
   	assert_not @event.valid?
   end
 

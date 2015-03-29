@@ -1,6 +1,8 @@
 class Ticket < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
+
+  validates :ticket_type, presence: true
 end
 
 # to create a ticket for a particular user for a particular event

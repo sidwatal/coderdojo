@@ -10,11 +10,18 @@ class TicketTest < ActiveSupport::TestCase
   		               event_description: "Our example event for children to get introduced to technology",
   		               event_date: DateTime.now,
   		               event_number_tickets: 30)
-  	@user.tickets.new(event: @event, ticket_type: "regular", number_of_children: 1)
+  	@ticket = Ticket.new(event: @event, ticket_type: "regular", number_of_children: 1)
+    
   end
 
-  test "should be valid" do
-    assert @user.tickets.valid?  	
+  test "ticket is valid" do
+    assert @ticket.valid?  	
+  end
+
+  test 'User has a ticket' do
+    @user.tickets << @ticket
+
+    assert @user.tickets.includes(@ticket)
   end
 
 end

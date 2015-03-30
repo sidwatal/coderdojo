@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :place
       t.text :description
       t.datetime :event_date
-      t.integer :number_of_tickets
+      t.integer :attendance
 
       t.timestamps null: false
     end

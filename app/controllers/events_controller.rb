@@ -43,7 +43,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:title, :place, :description,
                      "event_date(1i)", "event_date(2i)", "event_date(3i)", 
-                     :number_of_tickets)
+                     :attendance)
 
       { title: params[:event][:title], 
         place: params[:event][:place],
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
         event_date: Date.new(params[:event]["event_date(1i)"].to_i, 
                              params[:event]["event_date(2i)"].to_i, 
                              params[:event]["event_date(3i)"].to_i),
-       number_of_tickets: params[:event][:number_of_tickets] }
+       attendance: params[:event][:attendance] }
     end
 
 end

@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20150328135021) do
     t.string   "place"
     t.text     "description"
     t.datetime "event_date"
-    t.integer  "number_of_tickets"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "attendance"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tickets", force: :cascade do |t|

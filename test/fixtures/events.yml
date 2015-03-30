@@ -5,11 +5,11 @@ one:
   place: MyString
   description: MyText
   event_date: 2015-03-28 09:50:36
-  number_of_tickets: 1
+  attendance: 1
 
 two:
   title: MyString
   place: MyString
   description: MyText
   event_date: 2015-03-28 09:50:36
-  number_of_tickets: 1
+  attendance: 1

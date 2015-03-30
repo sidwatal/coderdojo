@@ -9,18 +9,18 @@ class TicketTest < ActiveSupport::TestCase
   	                   place: "123 Example Ave.", 
   		                 description: "Our example event for children to get introduced to technology",
   		                 event_date: DateTime.now,
-  		                 number_of_tickets: 30)
+  		                 attendance: 30)
   	@ticket = Ticket.new(event: @event, ticket_type: "regular", number_of_children: 1)
     @user.tickets = [@ticket]
   end
 
   test "should be valid" do
-    assert @user.tickets[0].valid?  	
+    assert @tickets.valid?  	
   end
 
   test "ticket should have a type" do
-    @user.tickets[0].ticket_type = "  "
-    assert_not @user.tickets[0].valid?
+    @ticket.ticket_type = "  "
+    assert_not @ticket.valid?
   end
 
 end

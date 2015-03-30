@@ -11,8 +11,7 @@ class TicketTest < ActiveSupport::TestCase
   		                 event_date: DateTime.now,
   		                 number_of_tickets: 30)
   	@ticket = Ticket.new(event: @event, ticket_type: "regular", number_of_children: 1)
-    @user.tickets = []
-    @user.tickets << @ticket
+    @user.tickets = [@ticket]
   end
 
   test "should be valid" do

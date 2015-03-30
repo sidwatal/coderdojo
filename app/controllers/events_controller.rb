@@ -6,22 +6,38 @@ class EventsController < ApplicationController
   	@event = Event.new
   end
 
+  def show
+    @events = Event.all
+  end
+
   def create
     @event = Event.new(event_params)
 
     if @event.save
       redirect_to event_path(@event)
     else
-      puts "Not saved event"
-      redirect_to new_event_path
+      flash[:danger] = @event.error.messages
+      render :new
     end
 
   end
 
-  def show
-    @events = Event.all
+  def edit
+    @event = Event.find(params[:id])
   end
 
+  def update
+    @event = Event.find(params[:id])
+
+    if @event.update(event_params)
+      redirect_to event_path(@event)
+    else
+      flash[:danger] = @event.error.messages
+      render :edit
+    end
+  end
+
+    
   private
 
     def event_params

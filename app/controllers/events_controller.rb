@@ -1,18 +1,41 @@
 class EventsController < ApplicationController
 
+  require 'date'
+
   def new
   	@event = Event.new
   end
 
   def create
-  	 puts params
-  	 # This is what I get
-  	 # event"=>{"title"=>"crazy happy event", "place"=>"somewhere crazy", "description"=>"Crazy description of crazy event.", 
-  	 #          "event_date(1i)"=>"2015", "event_date(2i)"=>"5", "event_date(3i)"=>"1", "number_of_tickets"=>"44"}, 
-  	 #          "commit"=>"Create an event"}
+    @event = Event.new(event_params)
 
-
-  	 #@event = Event.new(user_params)
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      puts "Not saved event"
+      redirect_to new_event_path
+    end
 
   end
+
+  def show
+    @events = Event.all
+  end
+
+  private
+
+    def event_params
+      params.require(:event).permit(:title, :place, :description,
+                     "event_date(1i)", "event_date(2i)", "event_date(3i)", 
+                     :number_of_tickets)
+
+      { title: params[:event][:title], 
+        place: params[:event][:place],
+        description: params[:event][:description],
+        event_date: Date.new(params[:event]["event_date(1i)"].to_i, 
+                             params[:event]["event_date(2i)"].to_i, 
+                             params[:event]["event_date(3i)"].to_i),
+       number_of_tickets: params[:event][:number_of_tickets] }
+    end
+
 end

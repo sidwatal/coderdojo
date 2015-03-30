@@ -1,3 +1,28 @@
 h1 Events#show
 
-p Hi
+p Hi these are all our events
+
+ul style="list-style: none;"
+  - @events.each do |e|
+    li
+      = "#{e.title}"
+    li 
+      |
+        Where:
+      '
+      = "#{e.place}"
+    li 
+      |
+        Description:
+      '
+      = "#{e.description}"
+    li 
+      |
+        On :
+      '
+      = "#{e.event_date}"
+    li 
+      |
+        Maximum attendance (children):
+      '
+      = "#{e.number_of_tickets}"

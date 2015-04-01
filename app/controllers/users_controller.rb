@@ -3,11 +3,12 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(1)
-  	past_tickets = Ticket.where("user_id = 1")
+  	
+  	all_tickets = Ticket.where("user_id =?", params[:id])
   	@past_events = []
   	@current_events = []
-  	past_tickets.each do |t|
+    puts "There is #{all_tickets.count} tickets for this user"
+  	all_tickets.each do |t|
   	  e = Event.find(t.event_id) 
   	  if e.event_date < Time.now
   	    @past_events << e

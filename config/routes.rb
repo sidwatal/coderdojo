@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   
+  get 'tickets/create'
+
+  get 'events/display'
+  get 'events/register'
+
+  post 'tickets/create'
+  
+  root  'events#display'
 
   resources :users
-  # get 'events/new'
   resources :events
+  resources :tickets
   
 end

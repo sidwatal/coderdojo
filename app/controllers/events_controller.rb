@@ -4,8 +4,21 @@ class EventsController < ApplicationController
   	@event = Event.new
   end
 
-  def show
+  # displays only current events
+  def display
+    # faking this user as logged in, remove after user completed
+    @user = User.find(3)      
     @current_events = Event.where("event_date >?", Time.now)
+  end
+
+  def register
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @ticket = Ticket.new
+  end
+
+  def show
+   
   end
 
   def create

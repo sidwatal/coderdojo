@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	before_save { email.downcase! }
-	has_many :tickets
+	has_many :ticket
 	has_many :events, through: :tickets
 	
 	
@@ -12,5 +12,22 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
+
+  # faking if user logged in
+  def logged_in?(user_id)
+  	if user_id < 22
+  		true
+  	else
+  		false
+  	end
+  end
+
+  def admin?
+  	return self.role == "admin"
+  end
+
+  def mentor?
+  	return self.role == "mentor"
+  end
 
 end

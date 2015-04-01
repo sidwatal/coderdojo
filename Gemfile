@@ -26,15 +26,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #QR code generator
 gem 'rqrcode_png'
-
+# generate slim tempplate by default
+gem 'slim-rails'
+# user authentication
 gem 'devise'
 
 gem 'bcrypt'
+# bootstrap stuff
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'rails-html-sanitizer'
 gem 'arel', '~> 6.0.0'
-gem 'slim-rails'
+
 gem 'execjs'
 gem 'therubyracer'
   

@@ -25,7 +25,7 @@ namespace :db  do
   		  user.role = "mentor"
   		end
   		Ticket.populate 1..5 do |ticket|  
-  			e = Random.rand(10)
+  			e = Random.rand(10) + 1
   			ticket.user_id = user.id
             ticket.event_id = e
             ticket.ticket_type = "regular"

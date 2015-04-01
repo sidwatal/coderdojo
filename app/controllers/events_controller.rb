@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.all
+    @current_events = Event.where("event_date >?", Time.now)
   end
 
   def create

@@ -18,12 +18,10 @@ class UsersController < ApplicationController
   end
 
   def cancel_ticket
-    puts "In cancel tickets"
-    puts params
-    #user = User.find(params[:user])
+    user = User.find(params[:user])
     ticket = Ticket.where("user_id =? and event_id =?", params[:user], params[:event]).first
-    puts "What is da id #{ticket.id}"
-    #Ticket.destroy(ticket_id)
-    redirect_to '/'
+    ticket_id = ticket.id
+    Ticket.destroy(ticket_id)
+    redirect_to user_path(user)
   end
 end

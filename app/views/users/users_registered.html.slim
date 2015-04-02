@@ -1,0 +1,15 @@
+h1 Users registered for the event #{@event.title}
+
+ul style="list-style: none;"
+  - @all_tickets.each_index do |i|
+    li User: 
+      #{@all_users[i].first_name} #{@all_users[i].last_name}
+    li Role:
+      #{@all_users[i].role}
+    li Children for this ticket 
+      #{@all_tickets[i].number_of_children}
+    li 
+      p
+
+p Capacity : #{@event.attendance}
+p Total attendance: #{@total_attendance}

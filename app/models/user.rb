@@ -30,4 +30,5 @@ class User < ActiveRecord::Base
   	return self.role == "mentor"
   end
 
+
 end

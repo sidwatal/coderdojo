@@ -29,7 +29,7 @@ namespace :db  do
   			ticket.user_id = user.id
             ticket.event_id = e
             ticket.ticket_type = "regular"
-            ticket.number_of_children = Random.rand(3)
+            ticket.number_of_children = Random.rand(3) + 1
         end
   	end
 	end

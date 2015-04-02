@@ -1,9 +1,9 @@
-h1 Events#show
+h1 Events#display
 
-p Hi these are all our events
+h2 Here is list of our upcoming events
 
 ul style="list-style: none;"
-  - @events.each do |e|
+  - @current_events.each do |e|
     li
       = "#{e.title}"
     li 
@@ -26,3 +26,9 @@ ul style="list-style: none;"
         Maximum attendance (children):
       '
       = "#{e.attendance}"
+    li
+      = link_to "events/register?event_id=#{e.id}&user_id=#{@user.id}"
+        button class="btn btn-primary" Register for this event  
+
+    li
+      p

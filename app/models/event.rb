@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
 	
-	has_many :tickets
+	has_many :ticket
 	has_many :users, through: :tickets
 
 	validates :title, presence: true

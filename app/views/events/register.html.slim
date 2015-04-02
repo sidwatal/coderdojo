@@ -1,0 +1,13 @@
+h1 Register for the event
+
+h3
+  |
+    Event: 
+  = "#{@event.title}"
+
+h3
+  |
+    User:
+  = "#{@user.first_name}  #{@user.last_name}"
+
+= render "ticket_form"

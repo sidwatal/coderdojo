@@ -26,38 +26,27 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #QR code generator
 gem 'rqrcode_png'
-
+# generate slim tempplate by default
+gem 'slim-rails'
+# user authentication
 gem 'devise'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 gem 'bcrypt'
+# bootstrap stuff
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'rails-html-sanitizer'
 gem 'arel', '~> 6.0.0'
-gem 'slim-rails'
+
 gem 'execjs'
 gem 'therubyracer'
   
   
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console'
-  gem 'spring'
-  gem 'faker'
-end
-
 group :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'guard-minitest'
+  gem 'populator'
+  gem 'faker'
 end
 

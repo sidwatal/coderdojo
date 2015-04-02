@@ -1,0 +1,25 @@
+h1 User#show
+
+h2 Upcoming events you registered for
+
+ul style="list-style: none;"
+  - @current_events.each do |e|
+    li
+      = "#{e.title}"
+    li
+      = "#{e.event_date}"
+    li
+      = link_to "cancel_ticket?event=#{e.id}&user=#{@user.id}"
+        button class="btn btn-danger"   Cancel ticket for this event  
+    li
+      p
+
+
+h2 All the events you attended
+
+ul style="list-style: none;"
+  - @past_events.each do |e|
+    li
+     = "#{e.title}"
+    li
+      = "#{e.event_date}"

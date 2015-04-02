@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'events/display'
   get 'events/register'
+  get 'users/cancel_ticket'
 
   post 'tickets/create'
   

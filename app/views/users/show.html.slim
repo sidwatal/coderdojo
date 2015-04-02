@@ -9,7 +9,8 @@ ul style="list-style: none;"
     li
       = "#{e.event_date}"
     li
-      button class="btn btn-danger" Cancel ticket for this event  
+      = link_to "cancel_ticket?event=#{e.id}&user=#{@user.id}"
+        button class="btn btn-danger"   Cancel ticket for this event  
     li
       p
 

@@ -3,11 +3,10 @@ class UsersController < ApplicationController
   end
 
   def show
-  	
+  	@user = User.find(params[:id])
   	all_tickets = Ticket.where("user_id =?", params[:id])
   	@past_events = []
   	@current_events = []
-    puts "There is #{all_tickets.count} tickets for this user"
   	all_tickets.each do |t|
   	  e = Event.find(t.event_id) 
   	  if e.event_date < Time.now
@@ -18,4 +17,13 @@ class UsersController < ApplicationController
   	end	
   end
 
+  def cancel_ticket
+    puts "In cancel tickets"
+    puts params
+    #user = User.find(params[:user])
+    ticket = Ticket.where("user_id =? and event_id =?", params[:user], params[:event]).first
+    puts "What is da id #{ticket.id}"
+    #Ticket.destroy(ticket_id)
+    redirect_to '/'
+  end
 end

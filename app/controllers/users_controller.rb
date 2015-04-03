@@ -4,17 +4,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	all_tickets = Ticket.where("user_id =?", params[:id])
-  	@past_events = []
-  	@current_events = []
-  	all_tickets.each do |t|
-  	  e = Event.find(t.event_id) 
-  	  if e.event_date < Time.now
-  	    @past_events << e
-  	  else
-  	  	@current_events << e
-  	  end
-  	end	
+  	@past_events = @user.current_events
+  	@current_events = @user.past_events
   end
 
   def cancel_ticket

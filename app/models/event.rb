@@ -9,4 +9,8 @@ class Event < ActiveRecord::Base
 	validates :event_date, presence: true
 	validates :attendance, presence: true, numericality: { only_integer: true, greater_than: 0 }
 	
+	# return current events
+	def self.current
+    Event.where("event_date >?", Time.now)
+	end
 end

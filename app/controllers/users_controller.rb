@@ -32,5 +32,14 @@ class UsersController < ApplicationController
     @total_attendance = @all_tickets.inject(0){|sum, t| sum + t.number_of_children}
   end
 
-  
+  # allow only admin
+  def index
+    if params[:search]
+      puts "Searching for a user"
+      @users = User.search(params[:search])
+      puts @users.count
+    else
+    @users = User.all
+    end
+  end
 end

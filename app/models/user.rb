@@ -30,5 +30,8 @@ class User < ActiveRecord::Base
   	return self.role == "mentor"
   end
 
+  def self.search(search_param)
+    where(:last_name => ["last_name LIKE ?", "#{search_param}"])
+  end
 
 end

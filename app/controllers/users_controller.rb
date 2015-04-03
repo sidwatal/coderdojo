@@ -17,10 +17,11 @@ class UsersController < ApplicationController
   end
 
   def users_registered
+    # delete this after debugging
     @all_tickets = Ticket.where("event_id =?", params[:event_id])
     @event = Event.find(params[:event_id])
-    @all_users = @all_tickets.map{|t| User.find(t.user_id)}
-    @total_attendance = @all_tickets.inject(0){|sum, t| sum + t.number_of_children}
+    @all_users = @event.list_of_users
+    @total_attendance = @event.current_attendance
   end
 
   # allow only admin

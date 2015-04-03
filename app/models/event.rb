@@ -13,4 +13,16 @@ class Event < ActiveRecord::Base
 	def self.current
     Event.where("event_date >?", Time.now)
 	end
+
+	def current_attendance
+		all_tickets = Ticket.where("event_id =?", self.id)
+    all_tickets.inject(0){|sum, t| sum + t.number_of_children}
+	end
+
+  # list all users registered for the event
+  def list_of_users
+    all_tickets = Ticket.where("event_id =?", self.id)
+    all_tickets.map{|t| User.find(t.user_id)}
+  end
+
 end

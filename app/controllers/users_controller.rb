@@ -34,4 +34,27 @@ class UsersController < ApplicationController
     @users = User.all
     end
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Profile updated successfully"
+      redirect_to user_path(@user)
+    else
+      flash[:danger] = @user.errors.messages
+      redner :edit
+    end
+  end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email)
+      # add :password and :password_confirmation when implemented
+    end
+
 end

@@ -30,4 +30,21 @@ class User < ActiveRecord::Base
   	return self.role == "mentor"
   end
 
+  def current_events
+    all_tickets = Ticket.where("user_id =?", self.id)
+    all_tickets.map{ |t| Event.find(t.event_id)}
+               .select { |e| e.event_date < Time.now}
+
+  end
+
+  def past_events
+    all_tickets = Ticket.where("user_id =?", self.id)
+    all_tickets.map{ |t| Event.find(t.event_id)}
+               .select { |e| e.event_date >= Time.now}
+  end
+
+  def self.search(search_param)
+    where(:last_name => ["last_name LIKE ?", "#{search_param}"])
+  end
+
 end

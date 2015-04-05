@@ -1,10 +1,15 @@
 h1 Edit user #{@user.first_name} #{@user.last_name}
 
 = form_for @user do |u|
+  = u.label :first_name
   = u.text_field :first_name
+  = u.label :last_name
   = u.text_field :last_name
+  = u.label :email
   = u.text_field :email
+  = u.label :password
   = u.password_field :password
+  = u.label :password_confirmation
   = u.password_field :password_confirmation
 
   = u.submit "Submit", class: "btn btn-primary"

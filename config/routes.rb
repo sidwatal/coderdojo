@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/welcome_registration_page'
+
+  get 'static_pages/user_registration_page'
+
+  get 'static_pages/events_page'
+
   get  'events/display'
   get  'events/register'
   get  'users/cancel_ticket'

@@ -31,8 +31,7 @@ gem 'slim-rails'
 # user authentication
 gem 'devise'
 
-# use Puma as webserver
-gem 'puma'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 gem 'bcrypt'
 # bootstrap stuff
@@ -42,7 +41,7 @@ gem 'rails-html-sanitizer'
 gem 'arel', '~> 6.0.0'
 
 gem 'execjs'
-gem 'therubyracer'
+
   
   
 group :test do

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'gothambook';
+  src: url('Gotham-Book.ttf');
+}
+
+body{
+	font-family: gothambook, sans-serif;
+	color: #85878A;
+	font-size: .9em;
+	font-weight: 300em;
+	margin: 0px;
+}
+
+.red_line{
+	height: 6px;
+	background-color: #ED164E;
+}
+
+.coderdojo_icon{
+	height:85px;
+	width:85px; 
+	left:30px;
+	top: 5px; 
+	position: absolute;
+}
+
+ul li{
+	list-style-type: none; 
+}

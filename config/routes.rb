@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   get 'events/display'
   get 'events/register'
   get 'users/cancel_ticket'
+  get 'signup' => 'users#new'
 
   post 'tickets/create'
   
-  root  'events#display'
+  root  'users#new'
 
   resources :users
   resources :events

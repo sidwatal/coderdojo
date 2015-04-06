@@ -31,6 +31,9 @@ gem 'slim-rails'
 # user authentication
 gem 'devise'
 
+# use Puma as webserver
+gem 'puma'
+
 gem 'bcrypt'
 # bootstrap stuff
 gem 'bootstrap-sass'

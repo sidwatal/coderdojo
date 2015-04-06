@@ -1,0 +1,18 @@
+h1 Displaying all users
+
+div class="user-search"
+  = form_tag users_path, :method => 'get' do
+    p
+      = text_field_tag :search, params[:search]
+      = submit_tag "Search", name: nil
+
+ul style="list-style: none;"
+  - @users.each do |u|
+    li = link_to "/users/#{u.id}"
+      |
+        #{u.first_name}  
+      |  
+        #{u.last_name} 
+      |
+        #{u.role}
+    

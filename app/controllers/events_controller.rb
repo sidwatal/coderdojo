@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def display
     # faking this user as logged in, remove after user completed
     @user = User.find(16)      
-    @current_events = Event.where("event_date >?", Time.now)
+    @current_events = Event.current
   end
 
   def register

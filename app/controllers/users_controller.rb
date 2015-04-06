@@ -14,17 +14,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	all_tickets = Ticket.where("user_id =?", params[:id])
-  	@past_events = []
-  	@current_events = []
-  	all_tickets.each do |t|
-  	  e = Event.find(t.event_id) 
-  	  if e.event_date < Time.now
-  	    @past_events << e
-  	  else
-  	  	@current_events << e
-  	  end
-  	end	
+  	@past_events = @user.current_events
+  	@current_events = @user.past_events
   end
 
   def cancel_ticket
@@ -34,8 +25,53 @@ class UsersController < ApplicationController
     Ticket.destroy(ticket_id)
     redirect_to user_path(user)
   end
+<<<<<<< HEAD
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
+=======
+
+  def users_registered
+    # delete this after debugging
+    @all_tickets = Ticket.where("event_id =?", params[:event_id])
+    @event = Event.find(params[:event_id])
+    @all_users = @event.list_of_users
+    @total_attendance = @event.current_attendance
+  end
+
+  # allow only admin
+  def index
+    if params[:search]
+      puts "Searching for a user"
+      @users = User.search(params[:search])
+      puts @users.count
+    else
+    @users = User.all
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Profile updated successfully"
+      redirect_to user_path(@user)
+    else
+      flash[:danger] = @user.errors.messages
+      redner :edit
+    end
+  end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email)
+      # add :password and :password_confirmation when implemented
+    end
+
+>>>>>>> d66eeb0a2c151b47d1dfbcb6d34fc3e6be0a7669
 end

@@ -25,12 +25,12 @@ class UsersController < ApplicationController
     Ticket.destroy(ticket_id)
     redirect_to user_path(user)
   end
-<<<<<<< HEAD
+
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
-=======
+
 
   def users_registered
     # delete this after debugging
@@ -66,12 +66,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
-      # add :password and :password_confirmation when implemented
-    end
 
->>>>>>> d66eeb0a2c151b47d1dfbcb6d34fc3e6be0a7669
+
 end

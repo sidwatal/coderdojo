@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get  'users/cancel_ticket'
   get  'users/users_registered'
 
-  #get  'tickets/index' => 'tickets#index'
-  #post 'tickets/create' => "tickets#create"
+  get  'tickets/index' => 'tickets#index'
+  post 'tickets/create' => "tickets#create"
   
   root  'users#new'
 

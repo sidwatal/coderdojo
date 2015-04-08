@@ -12,7 +12,7 @@ body{
 }
 
 .red_line{
-	margin-top: -14px;
+	margin-top: -13px;
 	height: 6px;
 	background-color: #ED164E;
 }
@@ -53,7 +53,7 @@ a:active {
 }
 
 .center_image{
-	top: -400px;
+	top: -448px;
   	position: relative;
   	height: 899px;
 }
@@ -61,7 +61,7 @@ a:active {
 .current_page{
 	  z-index: 9999;
   	  position: absolute;
-  	  top: 3.7em;
+  	  top: 3.75em;
   	  left: 2em;
   	  line-height: 1.4em;
       font-weight: 700;
@@ -81,7 +81,7 @@ a:active {
 	color:#00acb0;
 	font-size: 3em;
 	text-align: center;
-	margin-top: -350px;
+	margin-top: -430px;
 }
 
 .cfooter{

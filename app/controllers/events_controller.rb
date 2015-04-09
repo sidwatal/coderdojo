@@ -9,7 +9,8 @@ class EventsController < ApplicationController
     # faking this user as logged in, remove after user completed
     @user = User.find(16)      
     @current_events = Event.current
-    @current_events.each {|e| puts e.activities.split(' ')}
+    @events_attendance = @current_events.map{|e| e.current_attendance}
+    
   end
 
   def register

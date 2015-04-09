@@ -3,31 +3,35 @@ h1 Events#display
 h2 Here is list of our upcoming events
 
 ul style="list-style: none;"
-  - @current_events.each do |e|
+  - for i in (0...@current_events.size) do 
     li
-      = "#{e.title}"
+      = "#{@current_events[i].title}"
     li 
       |
         Where:
       '
-      = "#{e.place}"
+      = "#{@current_events[i].place}"
     li 
       |
         Description:
       '
-      = "#{e.description}"
+      = "#{@current_events[i].description}"
     li 
       |
         On :
       '
-      = "#{e.event_date}"
+      = "#{@current_events[i].event_date}"
+    li
+      | Current Attendance:
+      '
+      = "#{@events_attendance[i]}"
     li 
       |
         Maximum attendance (children):
       '
-      = "#{e.attendance}"
+      = "#{@current_events[i].attendance}"
     li
-      = link_to "register?event_id=#{e.id}&user_id=#{@user.id}"
+      = link_to "register?event_id=#{@current_events[i].id}&user_id=#{@user.id}"
         button class="btn btn-primary" Register for this event  
 
     li

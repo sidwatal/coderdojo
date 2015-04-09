@@ -8,5 +8,6 @@ div class="col-md-6 col-md-offset-3"
     - unless @user.mentor?
       = t.label :number_of_children
       = t.number_field(:number_of_children, value: 1)
-
+    = t.label :activity
+    = select_tag(:activity, options_for_select(@event.activities.split(',')))
     = t.submit "Submit", class: "btn btn-primary" 

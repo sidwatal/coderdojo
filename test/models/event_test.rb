@@ -6,7 +6,8 @@ class EventTest < ActiveSupport::TestCase
   	@event = Event.new(title: "Example Event",
   	                   place: "12 Example Avenue", 
   		                 description: "Our example event for children to get introduced to technology",
-  		                 event_date: DateTime.now,
+  		                 activities: "Scratch, HTML, Hardware",
+                       event_date: DateTime.now,
   		                 attendance: 30)
   end
 
@@ -32,6 +33,11 @@ class EventTest < ActiveSupport::TestCase
   test "event should have number of tickets, greater than 0" do
   	assert @event.attendance = 0
   	assert_not @event.valid?
+  end
+
+  test "event should have activities" do
+    assert @event.activities = " "
+    assert_not @event.valid?
   end
 
 end

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	before_save { email.downcase! }
-	has_many :ticket, dependent: :destroy
+	has_many :tickets, dependent: :destroy
 	has_many :events, through: :tickets
 	
 	

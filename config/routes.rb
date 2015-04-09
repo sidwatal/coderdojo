@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get  'tickets/index' => 'tickets#index'
   post 'tickets/create' => "tickets#create"
-  
+
   root  'users#new'
 
   resources :users

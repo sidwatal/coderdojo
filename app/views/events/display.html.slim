@@ -27,7 +27,7 @@ ul style="list-style: none;"
       '
       = "#{e.attendance}"
     li
-      = link_to "events/register?event_id=#{e.id}&user_id=#{@user.id}"
+      = link_to "register?event_id=#{e.id}&user_id=#{@user.id}"
         button class="btn btn-primary" Register for this event  
 
     li

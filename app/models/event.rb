@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
 	validates :description, presence: true
 	validates :event_date, presence: true
 	validates :attendance, presence: true, numericality: { only_integer: true, greater_than: 0 }
+	validates :activities, presence: true
 	
 	# return current events
 	def self.current

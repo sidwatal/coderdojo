@@ -81,9 +81,84 @@ a:active {
 	color:#00acb0;
 	font-size: 3em;
 	text-align: center;
-	margin-top: -430px;
+	margin-top: -375px;
+	font-weight: 700;
 }
+
+.sub_wel_header{
+	color:#00acb0;
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 20px;
+	font-weight: 700;
+}
+
+.already_login_header{
+	color:#00acb0;
+	font-size: 3em;
+	text-align: center;
+	margin-top: 50px;
+	font-weight: 700;
+	}
 
 .cfooter{
 	text-align: center;
+	font-size: .8em;
+}
+
+.align_footer{
+	margin-top:30px;
+}
+
+.parent_button{
+      font-weight: 700;
+      color: white;
+      background-color: #ED164E;
+      text-align: center;
+      padding: 15px;
+      text-transform: uppercase;
+      font-size: 1em;
+      width: 100px;
+      margin-left: 415px;
+      margin-top: 20px;
+      
+}
+
+.mentor_button{
+      font-weight: 700;
+      color: white;
+      background-color: #ED164E;
+      text-align: center;
+      padding: 15px;
+      text-transform: uppercase;
+      font-size: 1em;
+      width: 100px;
+      margin-left: 614px;
+      margin-top: -60px;
+}
+
+.student_button{
+      font-weight: 700;
+      color: white;
+      background-color: #ED164E;
+      text-align: center;
+      padding: 15px;
+      text-transform: uppercase;
+      font-size: 1em;
+      width: 100px;
+      margin-left: 809.5px;
+      margin-top: -59.5px;
+}
+
+.login_button{
+      font-weight: 700;
+      color: white;
+      background-color: #ED164E;
+      text-align: center;
+      padding: 15px;
+      text-transform: uppercase;
+      font-size: 1em;
+      width: 100px;
+      margin-left: 613px;
+      margin-top: 35px;
 }

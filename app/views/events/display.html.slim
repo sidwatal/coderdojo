@@ -25,11 +25,17 @@ ul style="list-style: none;"
       | Current Attendance:
       '
       = "#{@events_attendance[i]}"
+    
     li 
       |
         Maximum attendance (children):
       '
       = "#{@current_events[i].attendance}"
+    - if @events_attendance[i] >= @current_events[i].attendance
+      li class="warning"
+        |
+          Maximum capacity for the event reached.
+          You will be placed on waiting list.
     li
       = link_to "register?event_id=#{@current_events[i].id}&user_id=#{@user.id}"
         button class="btn btn-primary" Register for this event  

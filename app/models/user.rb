@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
                .select { |e| e.event_date >= Time.now}
   end
 
+  def has_ticket?(event_id)
+    Ticket.where("event_id =? and user_id =?", event_id, self.id)
+  end
+  
   def self.search(search_param)
     where(:last_name => ["last_name LIKE ?", "#{search_param}"])
   end

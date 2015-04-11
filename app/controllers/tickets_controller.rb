@@ -10,10 +10,14 @@ class TicketsController < ApplicationController
                         ticket_type: params[:ticket][:user_role],
                         activity: params[:ticket][:activity], 
     	                  number_of_children: params[:ticket][:number_of_children])
-    if ticket.save()
-      redirect_to @current_user, notice: "Ticket created."
+    unless @current_user.has_ticket?(:event_id)  
+      if ticket.save()
+        redirect_to @current_user, notice: "Ticket created."
+      else
+        redirect_to @current_user, notice: "Ticket creation failed."
+      end
     else
-      redirect_to @current_user, notice: "Ticket creation failed."
+      redirect_to @current_user, notice: "Already have ticket for this event!"
     end
 
   end

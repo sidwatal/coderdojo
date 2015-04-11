@@ -21,16 +21,15 @@ ul style="list-style: none;"
         On :
       '
       = "#{@current_events[i].event_date}"
-    li
-      | Current Attendance:
-      '
-      = "#{@events_attendance[i]}"
-    
     li 
       |
-        Maximum attendance (children):
+        Places left (children):
       '
-      = "#{@current_events[i].attendance}"
+      - if @current_events[i].attendance - @events_attendance[i] > 0  
+        = "#{@current_events[i].attendance - @events_attendance[i]}"
+      - else
+        |
+          0
     - if @events_attendance[i] >= @current_events[i].attendance
       li class="warning"
         |

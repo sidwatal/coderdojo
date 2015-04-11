@@ -1,8 +1,6 @@
 class TicketsController < ApplicationController
  
   def create
-  	puts "In ticket create"
-  	puts ticket_params
     @current_user = User.find(params[:ticket][:user_id])
     event = Event.find(params[:ticket][:event_id])
     ticket = Ticket.new(user: @current_user, 
@@ -10,7 +8,8 @@ class TicketsController < ApplicationController
                         ticket_type: params[:ticket][:user_role],
                         activity: params[:ticket][:activity], 
     	                  number_of_children: params[:ticket][:number_of_children])
-    unless @current_user.has_ticket?(:event_id)  
+   
+    unless @current_user.has_ticket?(params[:ticket][:event_id])  
       if ticket.save()
         redirect_to @current_user, notice: "Ticket created."
       else

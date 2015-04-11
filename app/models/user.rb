@@ -45,9 +45,11 @@ class User < ActiveRecord::Base
   end
 
   def has_ticket?(event_id)
-    Ticket.where("event_id =? and user_id =?", event_id, self.id)
+    # this query returns ActionRecord::Relation which is array in 
+    # case of falsity it returns empty array
+    Ticket.where("event_id =? and user_id =?", event_id, self.id) != []
   end
-  
+
   def self.search(search_param)
     where(:last_name => ["last_name LIKE ?", "#{search_param}"])
   end

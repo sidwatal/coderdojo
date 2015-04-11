@@ -9,6 +9,8 @@ class EventsController < ApplicationController
     # faking this user as logged in, remove after user completed
     @user = User.find(16)      
     @current_events = Event.current
+    @events_attendance = @current_events.map{|e| e.current_attendance}
+    
   end
 
   def register
@@ -18,7 +20,7 @@ class EventsController < ApplicationController
   end
 
   def show
-   
+    @event = Event.find(params[:id])
   end
 
   def create
@@ -55,7 +57,8 @@ class EventsController < ApplicationController
       params.require(:event).permit(:title, :place, :description,
                      "event_date(1i)", "event_date(2i)", "event_date(3i)",
                      :time, 
-                     :attendance)
+                     :attendance,
+                     :activities)
 
       puts params
 
@@ -67,7 +70,8 @@ class EventsController < ApplicationController
                              params[:event]["event_date(3i)"].to_i,
                              params[:event]["event_date(4i)"].to_i,
                              params[:event]["event_date(5i)"].to_i),
-       attendance: params[:event][:attendance] }
+       attendance: params[:event][:attendance],
+       activities: params[:event][:activities] }
     end
 
 end

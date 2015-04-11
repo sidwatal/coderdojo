@@ -21,20 +21,18 @@ ul style="list-style: none;"
         On :
       '
       = "#{@current_events[i].event_date}"
-    li 
-      |
-        Places left (children):
-      '
+   
       - if @current_events[i].attendance - @events_attendance[i] > 0  
-        = "#{@current_events[i].attendance - @events_attendance[i]}"
+        li 
+          |
+            Places left (children):
+          '
+          = "#{@current_events[i].attendance - @events_attendance[i]}"
       - else
-        |
-          0
-    - if @events_attendance[i] >= @current_events[i].attendance
-      li class="warning"
-        |
-          Maximum capacity for the event reached.
-          You will be placed on waiting list.
+        li class="warning"
+          |
+            Maximum capacity for the event reached.
+            You will be placed on waiting list.
     li
       = link_to "register?event_id=#{@current_events[i].id}&user_id=#{@user.id}"
         button class="btn btn-primary" Register for this event  

@@ -9,9 +9,11 @@ h3 All the activities for this event:
     = e
 
 h3 All the tickets for the event
-ul
+ul style="list-style: none;"
   - for i in (0...@all_tickets.size) do
-    li Children registered: #{@all_tickets[i].number_of_children}
+    li #{User.find(@all_tickets[i].user_id).last_name} Children registered: #{@all_tickets[i].number_of_children} 
+    li Preferred activity: #{@all_tickets[i].activity}
+
 
     - if i != 0 and @cumulative_ticket_sum[i-1] > @event.attendance and @all_tickets[i].ticket_type != "admin override"
       = form_for @all_tickets[i] do |t|

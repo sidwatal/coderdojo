@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @current_user = User.find(21)  # this simulates logged in user; delete when implemented
   	@user = User.find(params[:id])
   	@past_events = @user.current_events
   	@current_events = @user.past_events
@@ -24,6 +25,31 @@ class UsersController < ApplicationController
     ticket_id = ticket.id
     Ticket.destroy(ticket_id)
     redirect_to user_path(user)
+  end
+  
+  # allow only admin
+  def index
+  
+    if params[:search]
+      @users = User.search(params[:search])
+    else
+      @users = User.all
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Profile updated successfully"
+      redirect_to user_path(@user)
+    else
+      flash[:danger] = @user.errors.messages
+      render :edit
+    end
   end
 
   def test
@@ -43,34 +69,5 @@ class UsersController < ApplicationController
     @all_users = @event.list_of_users
     @total_attendance = @event.current_attendance
   end
-
-  # allow only admin
-  def index
-    if params[:search]
-      puts "Searching for a user"
-      @users = User.search(params[:search])
-      puts @users.count
-    else
-    @users = User.all
-    end
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      flash[:success] = "Profile updated successfully"
-      redirect_to user_path(@user)
-    else
-      flash[:danger] = @user.errors.messages
-      redner :edit
-    end
-  end
-
-
-
 
 end

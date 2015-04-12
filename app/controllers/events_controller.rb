@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   # displays only current events
   def display
     # faking this user as logged in, remove after user completed
-    @user = User.find(16)      
+    @user = User.find(21)      
     @current_events = Event.current
     @events_attendance = @current_events.map{|e| e.current_attendance}
     
@@ -21,6 +21,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @all_tickets = Ticket.where("event_id = #{params[:id]}")
+    counter = 0
+    @cumulative_ticket_sum = @all_tickets.map{|t| counter += t.number_of_children}
   end
 
   def create

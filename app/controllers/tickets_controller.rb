@@ -24,12 +24,25 @@ class TicketsController < ApplicationController
   def index
   end
 
+  def update
+    puts params
+    @ticket = Ticket.find(params[:id])
+    @event = Event.find(@ticket.event_id)
+    if @ticket.update(ticket_params)
+      flash[:success] = "Ticket updated successfully"
+    else
+      flash[:danger] = @ticket.error.messages
+    end
+    redirect_to event_path(@event)
+  end
+
   def ticket_params
   	params.require(:ticket)
           .permit( :user_id, 
                    :event_id, 
                    :user_role,
-                   :activity, 
+                   :activity,
+                   :ticket_type, 
                    :number_of_children)
   end
 

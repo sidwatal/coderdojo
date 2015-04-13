@@ -13,7 +13,7 @@ namespace :db  do
   	  event.description = Populator.words(1..10).titleize
       event.activities = activities.join(', ')
   	  event.event_date = Faker::Time.between(20.days.ago, Faker::Time.forward(20, :evening))
-  	  event.attendance =  Faker::Number.number(2)
+  	  event.attendance =  Random.rand(30)+5
   	end
 
   	User.populate 20 do |user|

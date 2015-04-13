@@ -34,8 +34,9 @@ ul style="list-style: none;"
             Maximum capacity for the event reached.
             You will be placed on waiting list.
     li
-      = link_to "register?event_id=#{@current_events[i].id}&user_id=#{@user.id}"
-        button class="btn btn-primary" Register for this event  
-
-    li
-      p
+      - if @user.admin?
+        = link_to "#{@current_events[i].id}"
+          button class="btn btn-primary" View all the tickets for the event
+      - else
+        = link_to "register?event_id=#{@current_events[i].id}&user_id=#{@user.id}"
+          button class="btn btn-primary" Register for this event"

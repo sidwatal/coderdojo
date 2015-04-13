@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, allow_blank: true
+
   # faking if user logged in
   def logged_in?(user_id)
   	if user_id < 22

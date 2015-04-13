@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   # displays only current events
   def display
     # faking this user as logged in, remove after user completed
-    @user = User.find(16)      
+    @user = User.find(1)      
     @current_events = Event.current
   end
 

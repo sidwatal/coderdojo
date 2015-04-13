@@ -13,6 +13,13 @@ class EventsController < ApplicationController
     
   end
 
+  def verification
+    puts "Hitting verfication route"
+    respond_to do |format|
+      format.json { render json: Event.todays_event.list_of_users }
+    end  
+  end
+    
   def register
     @user = User.find(params[:user_id])
     @event = Event.find(params[:event_id])
@@ -53,7 +60,7 @@ class EventsController < ApplicationController
     end
   end
 
-    
+ 
   private
 
     def event_params

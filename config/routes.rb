@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  get '/registration', to: "signup_pages#current"
+
   get  'events/display'
   get  'events/register'
+  get  'verification', to: "events#verification"   
   get  'users/cancel_ticket'
   get  'users/users_registered'
 

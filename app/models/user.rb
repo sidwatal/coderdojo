@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	before_save { email.downcase! }
-	has_many :ticket, dependent: :destroy
+	has_many :tickets, dependent: :destroy
 	has_many :events, through: :tickets
 	
 	
@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
+  has_secure_password
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
   # faking if user logged in
   def logged_in?(user_id)
@@ -41,6 +43,12 @@ class User < ActiveRecord::Base
     all_tickets = Ticket.where("user_id =?", self.id)
     all_tickets.map{ |t| Event.find(t.event_id)}
                .select { |e| e.event_date >= Time.now}
+  end
+
+  def has_ticket?(event_id)
+    # this query returns ActionRecord::Relation which is array in 
+    # case of falsity it returns empty array
+    Ticket.where("event_id =? and user_id =?", event_id, self.id) != []
   end
 
   def self.search(search_param)

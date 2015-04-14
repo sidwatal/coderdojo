@@ -1,9 +1,16 @@
-header class="navbar navbar-fixed-top navbar-inverse"
-    
-  div class="container"
-    = link_to "coderdojo_ticketing", "#", id: "logo"
-    nav
-      ul class="nav navbar-nav navbar-right"
-        li = link_to "Home", "#"
-        li = link_to "Event", "#"
-        li = link_to "Ticket", "#"
+div class = "coderdojo_icon"
+  =link_to image_tag("http://www.coderdojonyc.org/favicon.ico"), "http://www.coderdojonyc.org"
+div
+    nav class = "nav_links"
+      = link_to "ABOUT", 'http://www.coderdojonyc.org/about/', class: "nav_spaces"                 
+      = link_to "EVENTS", 'http://www.coderdojonyc.org/events/', class: "nav_spaces"
+      = link_to "REGISTRATION", 'http://www.coderdojonyc.org/welcome_registration_page.html/', class: "nav_spaces"
+      = link_to "START", 'http://www.coderdojonyc.org/start/', class: "nav_spaces"
+      = link_to "MENTORS", 'http://www.coderdojonyc.org/mentors/', class: "nav_spaces"
+      = link_to "LEARN", 'http://www.coderdojonyc.org/learning-stations/', class: "nav_spaces"
+      = link_to "BLOG", 'http://www.coderdojonyc.org/blog/', class: "nav_spaces"
+  
+        
+      
+      
+div class = "red_line"

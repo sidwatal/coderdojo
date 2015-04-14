@@ -1,0 +1,17 @@
+h1 Event Verification
+
+h3 All users registered for this event
+
+ul class="parents"
+
+javascript:
+  $.getJSON("/verification", function(data){
+    var items = [];
+    var parents_list = $(".parents");
+    $.each(data, function(key, val){
+      if(val["role"] == "parent"){
+        parents_list.append("<li> " + val["last_name"] + " " + val["first_name"] +"</li");
+      }
+    })
+  })
+

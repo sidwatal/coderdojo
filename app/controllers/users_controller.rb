@@ -14,9 +14,9 @@ class UsersController < ApplicationController
 
   def show
     @current_user = User.find(21)  # this simulates logged in user; delete when implemented
-  	@user = User.find(params[:id])
-  	@past_events = @user.current_events
-  	@current_events = @user.past_events
+    @user = User.find(params[:id])
+    @past_events = @user.current_events
+    @current_events = @user.past_events
   end
 
   def cancel_ticket
@@ -26,10 +26,10 @@ class UsersController < ApplicationController
     Ticket.destroy(ticket_id)
     redirect_to user_path(user)
   end
-  
+
   # allow only admin
   def index
-  
+
     if params[:search]
       @users = User.search(params[:search])
     else
@@ -55,11 +55,11 @@ class UsersController < ApplicationController
   def test
     puts params
   end
-  
+
   private
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
 
 
   def users_registered

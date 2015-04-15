@@ -1,16 +1,21 @@
-div class = "coderdojo_icon"
-  =link_to image_tag("http://www.coderdojonyc.org/favicon.ico"), "http://www.coderdojonyc.org"
-div
-    nav class = "nav_links"
-      = link_to "ABOUT", 'http://www.coderdojonyc.org/about/', class: "nav_spaces"                 
-      = link_to "EVENTS", 'http://www.coderdojonyc.org/events/', class: "nav_spaces"
-      = link_to "REGISTRATION", 'http://www.coderdojonyc.org/welcome_registration_page.html/', class: "nav_spaces"
-      = link_to "START", 'http://www.coderdojonyc.org/start/', class: "nav_spaces"
-      = link_to "MENTORS", 'http://www.coderdojonyc.org/mentors/', class: "nav_spaces"
-      = link_to "LEARN", 'http://www.coderdojonyc.org/learning-stations/', class: "nav_spaces"
-      = link_to "BLOG", 'http://www.coderdojonyc.org/blog/', class: "nav_spaces"
-  
-        
-      
-      
+doctype html
+html
+  head
+   =favicon_link_tag (source = "http://www.coderdojonyc.org/favicon.ico")
+header
+  =link_to image_tag("http://www.coderdojonyc.org/favicon.ico", class: "coderdojo_icon"), "http://www.coderdojonyc.org"
+  div
+      nav class = "nav_links"
+        = link_to "ABOUT", 'http://www.coderdojonyc.org/about/', class: "nav_spaces"                 
+        = link_to "EVENTS", 'http://www.coderdojonyc.org/events/', class: "nav_spaces"
+        = link_to "REGISTRATION", 'http://www.coderdojonyc.org/welcome_registration_page.html/', class: "nav_spaces"
+        = link_to "START", 'http://www.coderdojonyc.org/start/', class: "nav_spaces"
+        = link_to "MENTORS", 'http://www.coderdojonyc.org/mentors/', class: "nav_spaces"
+        = link_to "LEARN", 'http://www.coderdojonyc.org/learning-stations/', class: "nav_spaces"
+        = link_to "BLOG", 'http://www.coderdojonyc.org/blog/', class: "nav_spaces"
+
+div class = "signup_login_header_button"
+  ul class = "signup"
+    li SIGNUP or LOGIN          
+
 div class = "red_line"

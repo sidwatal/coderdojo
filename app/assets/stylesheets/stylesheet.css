@@ -12,7 +12,7 @@ body{
 }
 
 .red_line{
-	margin-top: -13px;
+	margin-top: -11px;
 	height: 6px;
 	background-color: #ED164E;
 }
@@ -24,6 +24,18 @@ body{
 	top: 5px; 
 	position: absolute;
 	border-image-width: 1;
+}
+
+.signup_login_header_button{
+  font-size: 1.9em;
+  font-weight:300;
+  margin-left: 1100px;
+  margin-top: -57px;
+  height: 55.78125px;
+}
+
+.signup{
+  list-style: none;
 }
 
 a:link{
@@ -48,7 +60,7 @@ a:active {
 	  font-size: 1.9em;
 	  font-weight:300;
 	  margin-left: 150px;
-	  margin-top: 32px;
+	  margin-top: -29px;
 	  height: 55.78125px;
 }
 
@@ -74,7 +86,7 @@ a:active {
 }
 
 .nav_spaces{
-	margin-right: .5em;
+	margin-right: .7em;
 }
 
 .wel_header{

@@ -1,11 +1,12 @@
 doctype html
 html
   head
+    =favicon_link_tag (source = "http://www.coderdojonyc.org/favicon.ico") 
     title Coderdojo Ticketing system
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
     /= javascript_include_tag 'application', 'data-turbolinks-track' => true 
     = csrf_meta_tags
-
+    
 body
     = render 'layouts/header'
       

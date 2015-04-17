@@ -2,11 +2,15 @@
 <html> 
 <html lang="en">
   <head> 
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
     <link rel="shortcut icon" href="http://www.coderdojonyc.org/favicon.ico" />
     <script src="//cdn.iubenda.com/iubenda.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src = "coderdojo.js"></script> 
+
     <title>Welcome to Registration</title>
   </head>
   <body>
@@ -22,6 +26,7 @@
            <a class = "nav_spaces" href = "http://www.coderdojonyc.org/mentors/">MENTORS</a>
            <a class = "nav_spaces" href = "http://www.coderdojonyc.org/learning-stations/">LEARN</a>
            <a class = "nav_spaces" href = "http://www.coderdojonyc.org/blog/" >BLOG</a>
+           <a id = "log" >LOGIN</a> / <a>SIGNUP</a>
         	
         </nav>
       
@@ -49,15 +54,40 @@
     <!--This segment is for the log-in pop--> 
      
     <div class = "login_pop-up_modal">
+      <div class = "modal_close">X</div>
+      <img class = "coderdojo_icon_pop_up" src = "http://www.coderdojonyc.org/favicon.ico" />
       
-      <form>
-        
+      <form class = "form_alignment" >
+
         <label>Email</label></br></br>       
         <input type = "text" ></br></br>
         <label>Password</label></br></br>
         <input type = "password"></br></br>  
         <input type = "checkbox">
         <label>Remember me?</label></br>
+      
+      </form>
+    
+      <div class ="login_button_pop_up">LOGIN</div>
+      
+      <script>
+
+        $(".login_pop-up_modal").hide();
+        $(document).ready(function(){
+          
+          $("#log").click(function(){
+              $(".login_pop-up_modal").show();
+          });
+          
+          $(".modal_close").click(function(){
+              $(".login_pop-up_modal").hide();
+          });
+
+        });
+
+     
+
+      </script>
 
     </div>
 

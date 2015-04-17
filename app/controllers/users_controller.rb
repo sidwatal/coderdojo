@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @current_user = User.find(21)  # this simulates logged in user; delete when implemented
+    @current_user = User.find(1)  # this simulates logged in user; delete when implemented
   	@user = User.find(params[:id])
   	@past_events = @user.current_events
   	@current_events = @user.past_events

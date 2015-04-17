@@ -45,7 +45,7 @@ a:active {
 
 .nav_links{
 	  width: 650px;
-	  font-size: 1.9em;
+	  font-size: 1em;
 	  font-weight:300;
 	  margin-left: 150px;
 	  margin-top: 32px;
@@ -166,4 +166,54 @@ a:active {
 .login_pop-up_modal{
 
       border-style: solid;
+      border-color: #ED164E;
+      border-width: 10px; 
+      width: 500px;
+      height: 450px;
+      background-color: white;
+}
+
+.form_alignment{
+    margin-left: 165px;
+    margin-top: 20px;
+}
+
+.coderdojo_icon_pop_up{
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+    margin-left: 215px;
+}
+
+.login_button_pop_up{
+      font-weight: 900;
+      color: white;
+      background-color: #ED164E;
+      text-align: center;
+      padding: 15px;
+      text-transform: uppercase;
+      font-size: 1em;
+      width: 100px;
+      margin-left: 187px;
+      margin-top: 30px;
+}
+
+.modal_close{
+     margin-left: 450px;
+     margin-top: 5px;
+     height: 15px;
+     width: 15px;
+     text-align: center;
+     padding: 10px 15px;
+     background: #ED164E;
+     cursor:  pointer;
+     color: white;
+     font-size: 16px;
+     font-weight: bold;
+     margin-left:450px;
+}
+
+#log{
+
+  cursor: pointer;
 }

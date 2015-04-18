@@ -14,10 +14,13 @@
     <title>Welcome to Registration</title>
   </head>
   <body>
+    
+
     <header>
       <a href= "http://www.coderdojonyc.org/"><img class = "coderdojo_icon" src = "http://www.coderdojonyc.org/favicon.ico" /></a>
-      <div>
-        <nav class = "nav_links">
+
+      <div class = "nav_links" >
+        <nav >
         
            <a class = "nav_spaces" href ="http://www.coderdojonyc.org/about/">ABOUT</a>
            <a class = "nav_spaces" href ="http://www.coderdojonyc.org/events/">EVENTS</a>
@@ -26,7 +29,7 @@
            <a class = "nav_spaces" href = "http://www.coderdojonyc.org/mentors/">MENTORS</a>
            <a class = "nav_spaces" href = "http://www.coderdojonyc.org/learning-stations/">LEARN</a>
            <a class = "nav_spaces" href = "http://www.coderdojonyc.org/blog/" >BLOG</a>
-           <a id = "log" >LOGIN</a> / <a>SIGNUP</a>
+           <a id = "log"  >LOGIN</a> / <a>SIGNUP</a>
         	
         </nav>
       
@@ -51,7 +54,7 @@
     <div class = "already_login_header" >Already a member?</div>
     <div class = "login_button">Log in here</div>
 
-    <!--This segment is for the log-in pop--> 
+     <!--This segment is for the log-in pop--> 
      
     <div class = "login_pop-up_modal">
       <div class = "modal_close">X</div>
@@ -67,28 +70,10 @@
         <label>Remember me?</label></br>
       
       </form>
-    
+      
       <div class ="login_button_pop_up">LOGIN</div>
       
-      <script>
-
-        $(".login_pop-up_modal").hide();
-        $(document).ready(function(){
-          
-          $("#log").click(function(){
-              $(".login_pop-up_modal").show();
-          });
-          
-          $(".modal_close").click(function(){
-              $(".login_pop-up_modal").hide();
-          });
-
-        });
-
-     
-
-      </script>
-
+    
     </div>
 
   <footer class = "cfooter">
@@ -124,6 +109,6 @@
 
 
   </footer>
-  
+  <div id = "overlay">
   </body> 
 </html>

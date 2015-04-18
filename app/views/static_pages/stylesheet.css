@@ -185,14 +185,13 @@ a:active {
 
 .form_alignment{
     margin-left: 165px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .coderdojo_icon_pop_up{
-    width: 100px;
-    height: 100px;
-    margin-top: 25px;
-    margin-left: 215px;
+    width: 40px;
+    height: 40px;
+    margin-top: 30px;
 }
 
 .login_button_pop_up{
@@ -241,3 +240,10 @@ a:active {
   opacity:.8;
   filter: alpha(opacity=80);
   }
+
+.coderdojo_word{
+    font-size: 30pt;
+    text-transform: uppercase;
+    text-align: center;
+  }
+

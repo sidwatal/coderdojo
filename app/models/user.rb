@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   end
 
   def has_ticket?(event_id)
-    # this query returns ActionRecord::Relation which is array in
+    # this query returns ActiveRecord::Relation which is array in
     # case of falsity it returns empty array
     Ticket.where("event_id =? and user_id =?", event_id, self.id) != []
   end

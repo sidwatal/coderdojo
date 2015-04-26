@@ -28,10 +28,10 @@ class UsersController < ApplicationController
     Ticket.destroy(ticket_id)
     redirect_to user_path(user)
   end
-  
+
   # allow only admin
   def index
-  
+
     if params[:search]
       @users = User.search(params[:search])
     else
@@ -57,11 +57,11 @@ class UsersController < ApplicationController
   def test
     puts params
   end
-  
+
   private
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
 
 
   def users_registered
